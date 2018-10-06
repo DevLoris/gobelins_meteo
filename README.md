@@ -1,26 +1,27 @@
-# meteo
+# Projet Gobelins #1 - Mété'app
+Projet de météo effectué dans le cadre du cours de Front End dispensé aux Gobelins. 
 
-## Project setup
+Il s'agit d'une application web en Vue.JS, faisant appel à une API et affichant la météo du jour, et des jours suivants.
+
+**Fonctionnalités :** 
+- Affichage de la météo en temps réel selon la géoloc
+- Affichage de la météo en fonction des favoris 
+- Affichage de la météo avec une recherche en auto-complétion
+- Cache pour éviter la surcharge d'appel sur l'API 
+- Début de Service Worker (PWA) 
+
+# Lancer le projet
+
 ```
 npm install
+npm run serve 
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
+### Compilation
 ```
 npm run build
-```
+``` 
+ 
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+Réalisé par Loris Pinna

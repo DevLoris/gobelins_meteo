@@ -1,0 +1,63 @@
+@import "../variables";
+#nav {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  &:before {
+    content: '';
+    position: absolute;
+    background: $linear;
+    box-shadow: #00000057 0 0 20px 6px;
+    width: 130%;
+    height: 150px;
+    border-radius: 100% 100% 0 0;
+    bottom: -65px;
+    z-index: 0;
+  }
+  a {
+    position: relative;
+    z-index: 2;
+    color: transparent;
+    height: 40px;
+    width: 33%;
+    background: no-repeat center / contain;
+    &.router-link-exact-active {
+      animation: icon-nav forwards 0.5s;
+    }
+    &[href="#/"] {
+      background-image: url(/img/menu/home_transparent.svg);
+      &.router-link-exact-active {
+        background-image: url(/img/menu/home.svg);
+      }
+    }
+    &[href="#/search"] {
+      background-image: url(/img/menu/search_transparent.svg);
+      &.router-link-exact-active {
+        background-image: url(/img/menu/search.svg);
+      }
+    }
+    &[href="#/settings"] {
+      background-image: url(/img/menu/favorite_transparent.svg);
+      &.router-link-exact-active {
+        background-image: url(/img/menu/favorite.svg);
+      }
+    }
+  }
+}
+@keyframes icon-nav {
+  0% {
+    transform: scale3d(0,0,1);
+  }
+  50% {
+    transform: scale3d(1.5,1.5,1);
+  }
+  100% {
+    transform: scale3d(1,1,1);
+  }
+}

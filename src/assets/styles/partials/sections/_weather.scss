@@ -1,0 +1,62 @@
+#weather {
+  .icon-meteo {
+    width: 130px;
+    max-width: 100%;
+  }
+  .meteo {
+    text-align: left;
+    padding-right: 20px;
+    &--temperature {
+      font-family: $font-family-bold;
+      font-size: 50px;
+      color: $white;
+    }
+    &--temps {
+      font-size: 22px;
+      color: $white;
+    }
+  }
+  .location {
+    color: $white;
+    opacity: 0.8;
+  }
+  .forecast {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: $white;
+    margin: 5px 0;
+    &--data {
+      width: 70%;
+      text-align: left;
+      &--when {
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+    }
+    &--temperature {
+      width: 20%;
+      opacity: 0.8;
+      font-size: 0.9em;
+    }
+    &--icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .playlist {
+    color: white;
+    text-align: left;
+    padding: 10px 20px;
+    &--sub {
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+    strong {
+      font-family: $font-family-bold;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+#search  {
+  height: 100%;
+  .search--autocomplete {
+    border: 0;
+    background: url(/img/menu/search.svg) rgba(0, 0, 0, 0.4) no-repeat calc(100% - 15px) center/35px;
+    font: inherit;
+    padding: 15px 20px;
+    border-radius: 30px;
+    width: 100%;
+    color: $white;
+    font-size: 20px;
+  }
+  #group {
+
+    overflow: auto;
+    height: calc(100% - 160px);
+  }
+}
