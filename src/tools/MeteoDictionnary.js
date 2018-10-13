@@ -1,3 +1,6 @@
+/*
+Dictionnary of day
+ */
 const DICTIONNARY = {
     day_today : "Aujourd'hui",
     day_0 : "Dimanche",

@@ -19,24 +19,17 @@ for (i in cache) {
         cached_data[i] = Item;
     }
 }
-var l = LocalStore.pull(STORAGE_KEYS.LANG, "fr");
-
-console.log(l);
 
 export default new Vuex.Store({
   state: {
       preferences :  LocalStore.pull(STORAGE_KEYS.FAVORITES, []),
       cached_weather:  cached_data,
       current_meteo_selector: LocalStore.pull(STORAGE_KEYS.CURRENT_WEATHER, ""),
-      language: l,
-      language_line: LANG[l]
+      language_line: LANG[LocalStore.pull(STORAGE_KEYS.LANG, "fr")]
   },
     getters: {
         preferences : state => state.preferences,
         current_meteo_selector : state => state.current_meteo_selector,
-        hasFavorite: (state, name) => {
-            return state.preferences.find(todo => todo.name === name)
-        },
         cache: state => state.cached_weather,
         cached_weather: state => state.cached_weather,
         language_line : state => state.language_line
@@ -50,8 +43,8 @@ export default new Vuex.Store({
         state.preferences.splice(key, 1);
         LocalStore.push(STORAGE_KEYS.FAVORITES, state.preferences);
     },
-      chooseLanguage(state, lang) {
-        state.language = lang;
+    chooseLanguage(state, new_language) {
+        state.language_line = LANG[new_language];
         LocalStore.push(STORAGE_KEYS.LANG, state.language);
     },
     addCache(state, data) {
