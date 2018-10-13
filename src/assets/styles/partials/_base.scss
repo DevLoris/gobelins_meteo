@@ -6,6 +6,9 @@ body {
   font-family: $font-family;
   font-size: 15px;
   background: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
@@ -35,11 +38,11 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 30px;
   font-family: $font-family-bold;
   text-transform: uppercase;
   text-align: center;
-  color: $black;
+  color: $white;
   line-height: 0.7em;
   font-weight: 900;
   position: relative;
@@ -97,7 +100,7 @@ h2 {
     }
   }
   &--favorite {
-    background: linear-gradient(-45deg, #F6FF00, #FF9100);
+    background: $secondary_theme;
   }
 }
 .bounce-enter-active {
@@ -106,21 +109,6 @@ h2 {
 .bounce-leave-active {
   display: none;
 }
-@keyframes bounce-in {
-  0% {
-    opacity: 0;
-    transform: scale(1) translateY(200px);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1) translateY(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0%);
-  }
-}
-
 
 .list-enter-active, .list-leave-active {
   transition: all 1s;

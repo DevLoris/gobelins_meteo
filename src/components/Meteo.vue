@@ -36,7 +36,6 @@
 
 <script>
 import MeteoForecast from '@/components/MeteoForecast.vue'
-import MeteoItem from '../classes/MeteoItem'
 
 export default {
   name: 'Meteo',

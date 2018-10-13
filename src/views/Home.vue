@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Meteo msg="Welcome to Your Vue.js App" v-bind:actual="actual"/>
+    <Meteo v-bind:actual="actual"/>
   </div>
 </template>
 
@@ -10,7 +10,6 @@ import { mapState, mapMutations } from 'vuex'
 import Meteo from '@/components/Meteo.vue'
 import location from '../tools/Location'
 import MeteoItem from '../classes/MeteoItem'
-
 
 export default {
   name: 'home',
@@ -31,9 +30,8 @@ export default {
     watch: {
         current_meteo_selector: {
             handler: function (val, oldval) {
-                if(val != oldval) {
+                if(val != oldval)
                     this.loadMeteo(this.current_meteo_selector);
-                }
             }
         },
       location: {
@@ -49,9 +47,7 @@ export default {
           deep: true
       }
     },
-  components: {
-    Meteo
-  },
+  components: {  Meteo  },
   computed:{
       ...mapState(['current_meteo_selector', 'cache', 'cached_weather'])
   },

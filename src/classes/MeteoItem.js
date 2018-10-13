@@ -1,6 +1,9 @@
 import ICON_LIST from '../tools/MeteoIconList';
 import PLAYLIST from '../tools/MeteoPlaylist';
 import AJAX from '../tools/Ajax';
+import APIXU from '../tools/Apixu';
+import LOCALSTORE from '../tools/LocalStore';
+import LOCALSTORE_KEYS from '../tools/LocalStoreKeys';
 import MeteoItemForecast from '../classes/MeteoItemForecast';
 
 class MeteoItem {
@@ -31,7 +34,8 @@ class MeteoItem {
     };
 
     init(selector, then) {
-        AJAX.get("http://api.apixu.com/v1/forecast.json?key=ce5777858c294254b40141608180110&lang=fr&q=" +selector+ "&days=5", e =>  { this.fromJson(e,then); });
+        var api = new APIXU(LOCALSTORE.pull(LOCALSTORE_KEYS.lang, "fr"));
+        AJAX.get(api.getForecast(selector), e =>  { this.fromJson(e,then); });
     };
 
     fromCache(cached) {

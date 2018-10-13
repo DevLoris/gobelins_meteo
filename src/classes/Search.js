@@ -1,4 +1,7 @@
 import AJAX from '../tools/Ajax';
+import APIXU from '../tools/Apixu';
+import LOCALSTORE from '../tools/LocalStore';
+import LOCALSTORE_KEYS from '../tools/LocalStoreKeys';
 
 class Search {
     constructor() {
@@ -6,7 +9,8 @@ class Search {
     }
 
     init(selector) {
-        AJAX.get("http://api.apixu.com/v1/search.json?key=ce5777858c294254b40141608180110&lang=fr&q=" +selector, e => this.fromJson(e));
+        var api = new APIXU(LOCALSTORE.pull(LOCALSTORE_KEYS.lang, "fr"));
+        AJAX.get(api.getSearch(selector), e => this.fromJson(e));
     };
 
     fromJson(json) {

@@ -1,10 +1,24 @@
 #app {
   width: 400px;
   height: 700px;
-  box-shadow: #000 0 0 20px ;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 20px ;
   margin: auto;
-  margin-top: 50px;
-  background: linear-gradient(to top, #4b6cb7, #182848);
+  background: $primary_theme;
   position: relative;
   overflow: hidden;
+
+  #search, .about, .home {
+    padding-bottom: 100px;
+    overflow: auto;
+    height: calc(100% - 100px);
+  }
+
+  @media (max-width: map_get($grid-breakpoints, mobile)){
+    height: 100%;
+    width: 100%;
+  }
+  @media (max-height: map_get($grid-breakpoints, mobile)){
+    height: 100%;
+    width: 100%;
+  }
 }

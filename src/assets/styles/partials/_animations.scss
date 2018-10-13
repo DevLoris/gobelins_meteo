@@ -1,0 +1,27 @@
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(1) translateY(200px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1) translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0%);
+  }
+}
+
+@keyframes icon-nav {
+  0% {
+    transform: scale3d(0,0,1);
+  }
+  50% {
+    transform: scale3d(1.5,1.5,1);
+  }
+  100% {
+    transform: scale3d(1,1,1);
+  }
+}

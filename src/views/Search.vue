@@ -7,19 +7,19 @@
       <div v-for="(result, key) in search_result.results" :key="key+'-r'"
            class="card card--place card--column"
            v-bind:favorited=" listHas(preferences, result.name)  " >
-        <p class="card--place_legend">Recherche</p>
+        <p class="card--place_legend">{{ language_line.search }}</p>
         <p class="card--place_name">{{ result.name }}</p>
         <div class="button-list">
-            <button class="btn" v-on:click="viewMeteo(result.lat, result.lon)">Voir</button>
-            <button v-if="!listHas(preferences, result.name)" class="btn" v-on:click="addToFavorite(result)">Ajouter favoris</button>
+            <button class="btn" v-on:click="viewMeteo(result.lat, result.lon)">{{ language_line.view }}</button>
+            <button v-if="!listHas(preferences, result.name)" class="btn" v-on:click="addToFavorite(result)">{{ language_line.add_favorite }}</button>
         </div>
       </div>
 
       <div v-for="(preference, key) in preferences" :key="key" class="card card--place card--column card--favorite">
-        <p class="card--place_legend">Lieu favori</p>
+        <p class="card--place_legend">{{ language_line.favorite_place }}</p>
         <p class="card--place_name">{{ preference.name }}</p>
         <div class="button-list">
-          <button class="btn" v-on:click="viewMeteo(preference.lat, preference.long)">Voir</button>
+          <button class="btn" v-on:click="viewMeteo(preference.lat, preference.long)">{{ language_line.view }}</button>
         </div>
       </div>
     </transition-group>
@@ -32,8 +32,6 @@
 
     export default {
         name: 'search',
-        created: function () {
-        },
         data: function() {
             return {
                 search_result: new Search(),
@@ -41,12 +39,8 @@
                 last_input : 0,
             };
         },
-        watch: {
-        },
-        components: {
-        },
         computed:{
-            ...mapState(['preferences']),
+            ...mapState(['preferences', 'language_line']),
         },
         methods:{
             ...mapMutations([ 'addToFavorite','setCurrentMeteo']),

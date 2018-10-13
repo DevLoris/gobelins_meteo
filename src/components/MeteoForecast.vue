@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import MeteoItem from '../classes/MeteoItem'
-
 export default {
   name: 'MeteoForecast',
   props: ['data']
