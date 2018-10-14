@@ -6,7 +6,15 @@ export default  {
         "language": "Langue",
         "favorite_place": "Lieu favori",
         "add_favorite": "Ajouter aux favoris",
-        "search": "Résultat de recherche"
+        "search": "Résultat de recherche",
+        day_today : "Aujourd'hui",
+        day_0 : "Dimanche",
+        day_1 : "Lundi",
+        day_2: "Mardi",
+        day_3: "Mercredi",
+        day_4: "Jeudi",
+        day_5: "Vendredi",
+        day_6: "Samedi",
     },
     en: {
         "delete": "Delete",
@@ -15,6 +23,14 @@ export default  {
         "language": "Languages",
         "favorite_place": "Favorite place",
         "add_favorite": "Add to favorite",
-        "search": "Search result"
+        "search": "Search result",
+        day_today : "Today",
+        day_0 : "Sunday",
+        day_1 : "Monday",
+        day_2: "Tuesday",
+        day_3: "Wednesday",
+        day_4: "Thursday",
+        day_5: "Friday",
+        day_6: "Saturday",
     }
 };

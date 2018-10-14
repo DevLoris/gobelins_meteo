@@ -1,3 +1,6 @@
+/*
+List of playlist for each code and list of playlist
+ */
 const PLAYLIST = {
     "code": {
         1000: "sunny",
@@ -18,6 +21,7 @@ const PLAYLIST = {
         1153: "drizzle", //fog
         1171: "drizzle", //fog
         1180: "rain",
+        1183: "rain",
         1186: "rain",
         1189: "rain",
         1192: "rain",

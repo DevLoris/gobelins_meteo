@@ -20,6 +20,14 @@ const LocalStore = {
     pull(name, not_exist = {}) {
         var get = localStorage.getItem(name);
         return get == null ? not_exist : JSON.parse(get);
+    },
+
+    /**
+     * Remove element from LocalStorage
+     * @param name
+     */
+    delete(name) {
+        localStorage.removeItem(name);
     }
 };
 

@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div class="location" v-on:click="forceRelocation()"></div>
     <Meteo v-bind:actual="actual"/>
   </div>
 </template>
@@ -52,6 +53,10 @@ export default {
       ...mapState(['current_meteo_selector', 'cache', 'cached_weather'])
   },
   methods:{
+      forceRelocation() {
+          this.resetCurrentMeteo();
+          location.init();
+      },
       loadMeteo(coords) {
           if(!coords)
               return;
@@ -65,7 +70,7 @@ export default {
           else
               this.actual = this.cached_weather[coords];
       },
-      ...mapMutations(['setMeteoSelector','setCurrentMeteo', 'addCache'])
+      ...mapMutations(['setMeteoSelector','setCurrentMeteo', 'addCache','resetCurrentMeteo'])
   }
 }
 </script>

@@ -7,6 +7,9 @@ import LOCALSTORE_KEYS from '../tools/LocalStoreKeys';
 import MeteoItemForecast from '../classes/MeteoItemForecast';
 
 class MeteoItem {
+    /**
+     * Create an empty instance
+     */
     constructor() {
         this.city = null;
         this.country = null;
@@ -17,14 +20,31 @@ class MeteoItem {
         this.date = new Date().getDay() + "-" + new Date().getMonth() + "-"+new Date().getFullYear();
     };
 
+    /**
+     * Get icon from meteo code
+     * @returns {*}
+     */
     getIcon() {
-        return ICON_LIST[this.condition.code];
+        return (ICON_LIST[this.condition.code] !== undefined) ? ICON_LIST[this.condition.code]: "cloud";
     };
 
+    /**
+     * Get Spotify playlist from meteo code
+     * @returns {*}
+     */
     getPlaylist() {
-        return PLAYLIST.playlists[PLAYLIST.code[this.condition.code]];
+        let playlist_code =  (PLAYLIST.code[this.condition.code] !== undefined) ?  PLAYLIST.code[this.condition.code] : "cloud";
+        return PLAYLIST.playlists[playlist_code];
     };
 
+    /**
+     * Set data of Meteo
+     * @param city
+     * @param country
+     * @param is_day
+     * @param condition
+     * @param temperature
+     */
     setData(city, country, is_day, condition, temperature) {
         this.city = city;
         this.country = country;
@@ -33,11 +53,20 @@ class MeteoItem {
         this.temperature = temperature;
     };
 
+    /**
+     * Init the meteo and get data from API
+     * @param selector
+     * @param then
+     */
     init(selector, then) {
         var api = new APIXU(LOCALSTORE.pull(LOCALSTORE_KEYS.lang, "fr"));
         AJAX.get(api.getForecast(selector), e =>  { this.fromJson(e,then); });
     };
 
+    /**
+     * Init data with cached values (from LocalStorage)
+     * @param cached
+     */
     fromCache(cached) {
         [this.city, this.country] = [cached.city, cached.country];
         [this.is_day, this.condition, this.temperature] = [cached.is_day,cached.condition, cached.temperature];
@@ -50,6 +79,11 @@ class MeteoItem {
         });
     }
 
+    /**
+     * Init data from JSON returned by the API
+     * @param json
+     * @param then
+     */
     fromJson(json, then) {
         [this.city, this.country] = [json.location.name, json.location.country];
         [this.is_day, this.condition, this.temperature] = [json.current.is_day, json.current.condition, json.current.temp_c];

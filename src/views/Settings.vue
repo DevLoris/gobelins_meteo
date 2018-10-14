@@ -9,7 +9,7 @@
       <p class="card--place_name">{{ preference.name }}</p>
     <div class="button-list">
       <button class="btn" v-on:click="viewMeteo(preference.lat, preference.long)">{{ language_line.view }}</button>
-      <button class="btn" v-on:click="deletePreferences(key)">{{ language_line.delete }}</button></div>
+      <button class="btn" v-on:click="deleteFromFavorites(key)">{{ language_line.delete }}</button></div>
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@
             ...mapState(['preferences', 'language_line'])
         },
         methods:{
-            ...mapMutations(['deletePreferences','setCurrentMeteo', 'chooseLanguage']),
+            ...mapMutations(['deleteFromFavorites','setCurrentMeteo', 'chooseLanguage']),
             viewMeteo(lat,long) {
                 this.$router.push('/');
                 this.setCurrentMeteo(lat + ',' + long);

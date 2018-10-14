@@ -1,5 +1,4 @@
 import ICON_LIST from '../tools/MeteoIconList';
-import METEO_DIC from '../tools/MeteoDictionnary';
 
 class MeteoItemForecast {
     constructor() {
@@ -26,9 +25,9 @@ class MeteoItemForecast {
         var month = ('0' + (now.getMonth() + 1)).slice(-2);
         var date = ('0' + now.getDate()).slice(-2);
         if(this.date == now.getFullYear() + "-" + month + "-" +  date)
-            return METEO_DIC.day_today;
+            return "day_today";
         else
-            return METEO_DIC['day_' + (new Date(this.date).getDay())];
+            return 'day_' + (new Date(this.date).getDay());
 
     }
 }

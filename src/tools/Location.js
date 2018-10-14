@@ -6,6 +6,8 @@ const Location = {
     lat: false,
     allow: false,
 
+    last_cibling: null,
+
     /**
      * Init the User Location
      */
@@ -19,6 +21,7 @@ const Location = {
      * @param position
      */
     setPosition(position) {
+        this.last_cibling = Date.now();
         this.long = position.coords.longitude;
         this.lat = position.coords.latitude;
     },

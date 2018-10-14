@@ -12,7 +12,7 @@
           <div class="meteo--temperature">{{ actual.temperature }} °C</div>
           <div class="meteo--temps">{{ actual.condition.text  }}</div>
         </div>
-        <img v-bind:src="'img/svg/' + actual.getIcon() + '.svg'" class="icon-meteo">
+        <img v-bind:src="'img/svg/' + actual.getIcon() + '.svg'" class="icon-meteo" title="Icone de Meteo" v-bind:alt="actual.getIcon()">
       </div>
       <div class="card card--right">
         <div class="location">

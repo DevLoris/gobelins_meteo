@@ -1,3 +1,6 @@
+/*
+List of custom icon for each Meteo Code
+ */
 const ICON_LIST = {
   1000: "sun",
   1003: "sun_cloud",

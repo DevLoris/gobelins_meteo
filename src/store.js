@@ -35,28 +35,62 @@ export default new Vuex.Store({
         language_line : state => state.language_line
     },
   mutations: {
+      /**
+       * Add a location to favorites
+       * @param state
+       * @param data
+       */
     addToFavorite(state, data) {
         state.preferences.push(new MeteoFavorite(data.name, data.lat, data.lon));
         LocalStore.push(STORAGE_KEYS.FAVORITES, state.preferences);
     },
-    deletePreferences(state, key) {
+      /**
+       * Delete location from favorites
+       * @param state
+       * @param key
+       */
+    deleteFromFavorites(state, key) {
         state.preferences.splice(key, 1);
         LocalStore.push(STORAGE_KEYS.FAVORITES, state.preferences);
     },
+      /**
+       * Change language of application
+       * @param state
+       * @param new_language
+       */
     chooseLanguage(state, new_language) {
-        state.language_line = LANG[new_language];
-        LocalStore.push(STORAGE_KEYS.LANG, state.language);
+        if(LANG[new_language] !== undefined) {
+            state.language_line = LANG[new_language];
+            LocalStore.push(STORAGE_KEYS.LANG, new_language);
+        }
     },
+      /**
+       * Add meteo to cache
+       * @param state
+       * @param data
+       */
     addCache(state, data) {
         if(data.coords && data.meteo) {
             state.cached_weather[data.coords] = data.meteo;
             LocalStore.push(STORAGE_KEYS.CACHED_WEATHER, state.cached_weather);
         }
     },
+      /**
+       * Set current meteo selector
+       * @param state
+       * @param coords
+       */
     setCurrentMeteo(state, coords) {
         state.current_meteo_selector = coords;
         LocalStore.push(STORAGE_KEYS.CURRENT_WEATHER, state.current_meteo_selector);
-    }
+    },
+      /**
+       * Reset current meteo selector
+       */
+    resetCurrentMeteo(state) {
+        state.current_meteo_selector = "";
+          LocalStore.delete(STORAGE_KEYS.CURRENT_WEATHER);
+      }
   },
   actions: {
 
