@@ -17,10 +17,9 @@ npm install
 npm run serve 
 ```
 
-### Compilation
-```
-npm run build
-``` 
+Puis ouvrir le projet avec l'URL inscrite dans la console. 
+
+ 
  
 
 
